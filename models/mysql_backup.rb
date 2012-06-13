@@ -55,7 +55,7 @@ Backup::Model.new(:mysql_backup, 'mysql database to s3') do
   compress_with Gzip
 
   notify_by Mail do |mail|
-    mail.on_success           = true
+    mail.on_success           = false
     mail.on_warning           = true
     mail.on_failure           = true
 
