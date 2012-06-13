@@ -6,7 +6,8 @@
 set :output, "~/Backup/log/cron.log"
  
 every 1.hours do
-  command "backup perform -t fm_backup"
+  command "backup perform -t fm_backup" if ENV["BACKUP_FM"]
+  command "backup perform -t mysql_backup" if ENV["BACKUP_SQL"]
 end
 
 # Learn more: http://github.com/javan/whenever
